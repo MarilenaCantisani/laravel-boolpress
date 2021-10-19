@@ -1922,6 +1922,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App"
 });
@@ -37597,18 +37604,12 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Benvenuti nel mio blog")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v("Al momento il sito è in costruzione.")
-            ])
-          ])
-        ])
+      _c("h1", [_vm._v("Benvenuti")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "\n    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat atque\n    ipsum dignissimos blanditiis quae obcaecati possimus quis dolorem neque\n    repudiandae tempora laborum iure ad, voluptates totam mollitia tempore\n    commodi iusto.\n  "
+        )
       ])
     ])
   }

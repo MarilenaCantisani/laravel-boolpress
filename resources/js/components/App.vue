@@ -1,14 +1,12 @@
 <template>
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header">Benvenuti nel mio blog</div>
-
-          <div class="card-body">Al momento il sito è in costruzione.</div>
-        </div>
-      </div>
-    </div>
+    <h1>Benvenuti</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat atque
+      ipsum dignissimos blanditiis quae obcaecati possimus quis dolorem neque
+      repudiandae tempora laborum iure ad, voluptates totam mollitia tempore
+      commodi iusto.
+    </p>
   </div>
 </template>
 
