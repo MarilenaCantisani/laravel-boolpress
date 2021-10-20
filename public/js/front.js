@@ -1920,15 +1920,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App"
 });
@@ -37604,7 +37595,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
-      _c("h1", [_vm._v("Benvenuti")]),
+      _c("h1", [_vm._v("Benvenuti nel mio sito")]),
       _vm._v(" "),
       _c("p", [
         _vm._v(
@@ -49975,7 +49966,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/marilenacantisani/laravel-boolpress/resources/js/front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/marilenacantisani/laravel/laravel-boolpress/resources/js/front.js */"./resources/js/front.js");
 
 
 /***/ })

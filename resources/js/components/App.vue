@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Benvenuti</h1>
+    <h1>Benvenuti nel mio sito</h1>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat atque
       ipsum dignissimos blanditiis quae obcaecati possimus quis dolorem neque
