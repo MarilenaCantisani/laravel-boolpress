@@ -7,11 +7,14 @@
       repudiandae tempora laborum iure ad, voluptates totam mollitia tempore
       commodi iusto.
     </p>
+    <PostsList />
   </div>
 </template>
 
 <script>
+import PostsList from "./posts/PostsList.vue";
 export default {
   name: "App",
+  components: { PostsList },
 };
 </script>
