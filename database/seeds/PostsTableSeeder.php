@@ -2,6 +2,7 @@
 
 use App\Models\Post;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 
 class PostsTableSeeder extends Seeder
@@ -18,7 +19,7 @@ class PostsTableSeeder extends Seeder
             $post->title = $faker->text(100);
             $post->content = $faker->paragraphs(3, true);
             $post->slug = Str::slug($post->title, '-');
-
+            $post->url = $faker->imageUrl(200, 200);
             $post->save();
         }
     }
