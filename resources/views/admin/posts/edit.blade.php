@@ -1,5 +1,7 @@
+{{-- Insert the layout of the page --}}
 @extends('layouts.app')
 
+{{-- Insert the content of the page --}}
 @section('content')
     <div class="container">
         <header>

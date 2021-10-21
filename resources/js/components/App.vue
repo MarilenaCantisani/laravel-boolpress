@@ -2,7 +2,7 @@
   <div class="container">
     <!-- Header section -->
     <header>
-      <h1 class="text-center my-4">Benvenuti nel mio blog</h1>
+      <h1 class="text-center my-5">Benvenuti nel mio blog</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat atque
         ipsum dignissimos blanditiis quae obcaecati possimus quis dolorem neque

@@ -1,4 +1,7 @@
+{{-- Insert the layout of the page --}}
 @extends('layouts.app')
+
+{{-- Insert the content of the page --}}
 @section('content')
 <div class="container">
     @if (session('alert-message'))
@@ -9,8 +12,8 @@
     <header class="d-flex justify-content-between align-items-center">
         <h1 class="text-center my-3">I miei post</h1>
         <a class="btn btn-success" href="{{route('admin.posts.create')}}"> Nuovo post</a>
-
     </header>
+    {{-- Table containing all the posts --}}
     <table class="table my-4">
         <thead>
           <tr>
@@ -34,21 +37,19 @@
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Elimina</button>
                         </form>
-
                     </td>
-                </tr>
-                
+                </tr>               
             @empty
                 <tr>
                     <td colspan="3" class="text-center">Nessun post</td>
                 </tr>    
             @endforelse
         </tbody>
-      </table>
-      <div class="d-flex justify-content-end">
-          {{$posts->links()}}
-      </div>
-
+    </table>
+    {{-- Link for pagination --}}
+    <div class="d-flex justify-content-end">
+        {{$posts->links()}}
+    </div>
 </div>
     
 @endsection

@@ -38560,7 +38560,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("header", [
-      _c("h1", { staticClass: "text-center my-4" }, [
+      _c("h1", { staticClass: "text-center my-5" }, [
         _vm._v("Benvenuti nel mio blog")
       ]),
       _vm._v(" "),
