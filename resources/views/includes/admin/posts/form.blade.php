@@ -2,13 +2,22 @@
     <form action="{{route('admin.posts.update', $post->id)}}" method="POST">
     @method('PATCH')
     @else
-    <form action="{{route('admin.posts.create')}}" method="POST">  
+    <form action="{{route('admin.posts.store')}}" method="POST">  
 @endif
     @csrf
     <div class="form-group">
         <label for="title">Titolo del post:</label>
         <input type="text" class="form-control" id="title" name="title" value="{{$post->title}}">
     </div>
+    <div class="form-group">
+        <label for="category_id">Categoria</label>
+        <select class="form-control" id="category_id" name="category_id">
+          <option>Nessuna Categoria</option>
+          @foreach ($categories as $category)
+            <option value="{{$category->id}}">{{$category->name}}</option>       
+          @endforeach
+        </select>
+      </div>
     <div class="form-group">
         <label for="url">Url del post:</label>
         <input type="text" class="form-control" id="url" name="url" value="{{$post->url}}">

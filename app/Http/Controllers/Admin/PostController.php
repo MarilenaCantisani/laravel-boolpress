@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Post;
+use App\Models\Category;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -28,7 +30,8 @@ class PostController extends Controller
     public function create()
     {
         $post = new Post();
-        return view('admin.posts.create', compact('post'));
+        $categories = Category::all();
+        return view('admin.posts.create', compact('post', 'categories'));
     }
 
     /**
@@ -44,7 +47,7 @@ class PostController extends Controller
         $post->fill($data);
         $post->slug = Str::slug($post->title, '-');
         $post->save();
-        return redirect()->route('admin.posts.show', $post->id);
+        return redirect()->route('admin.posts.show', compact('post'));
     }
 
     /**
