@@ -2044,6 +2044,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "PostCard",
   props: ["post"],
@@ -38732,8 +38737,21 @@ var render = function() {
   return _c("li", { attrs: { id: "post-card" } }, [
     _c("div", { staticClass: "card my-4" }, [
       _c("div", { staticClass: "card-body" }, [
-        _c("h5", { staticClass: "card-title" }, [
+        _c("h4", { staticClass: "card-title" }, [
           _c("strong", [_vm._v(_vm._s(_vm.post.title))])
+        ]),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _c("h5", [
+          _c("strong", [_vm._v("Categoria:")]),
+          _vm._v(
+            "\n        " +
+              _vm._s(
+                _vm.post.category ? _vm.post.category.name : "Nessuna categoria"
+              ) +
+              "\n      "
+          )
         ]),
         _vm._v(" "),
         _c("hr"),

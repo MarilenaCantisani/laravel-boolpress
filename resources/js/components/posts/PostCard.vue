@@ -2,8 +2,13 @@
   <li id="post-card">
     <div class="card my-4">
       <div class="card-body">
-        <h5 class="card-title">
+        <h4 class="card-title">
           <strong>{{ post.title }}</strong>
+        </h4>
+        <hr />
+        <h5>
+          <strong>Categoria:</strong>
+          {{ post.category ? post.category.name : "Nessuna categoria" }}
         </h5>
         <hr />
         <h6>

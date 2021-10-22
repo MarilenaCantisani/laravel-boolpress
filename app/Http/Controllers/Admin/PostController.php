@@ -85,7 +85,7 @@ class PostController extends Controller
         $oldTitle = $post->title;
         $data = $request->all();
         $post->fill($data);
-        if ($oldTitle) {
+        if ($oldTitle !== $request->title) {
             $post->slug = Str::slug($post->title, '-');
         }
         $post->save();
