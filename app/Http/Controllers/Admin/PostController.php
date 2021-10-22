@@ -82,9 +82,12 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        $oldTitle = $post->title;
         $data = $request->all();
         $post->fill($data);
-        $post->slug = Str::slug($post->title, '-');
+        if ($oldTitle) {
+            $post->slug = Str::slug($post->title, '-');
+        }
         $post->save();
 
         return redirect()->route('admin.posts.show', $post->id);

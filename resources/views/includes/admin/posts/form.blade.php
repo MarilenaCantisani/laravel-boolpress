@@ -1,5 +1,5 @@
-@if ($post->exsist)
-    <form action="{{route('admin.posts.update', $post->id)}}" method="POST">
+@if ($post->exists)
+<form action="{{route('admin.posts.update', $post->id)}}" method="POST">
     @method('PATCH')
     @else
     <form action="{{route('admin.posts.store')}}" method="POST">  
@@ -12,7 +12,7 @@
     <div class="form-group">
         <label for="category_id">Categoria</label>
         <select class="form-control" id="category_id" name="category_id">
-          <option>Nessuna Categoria</option>
+          <option value="">Nessuna Categoria</option>
           @foreach ($categories as $category)
             <option @if(old('category_id', $post->category_id) == $category->id) selected @endif value="{{$category->id}}">{{$category->name}}</option>       
           @endforeach
