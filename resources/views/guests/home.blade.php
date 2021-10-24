@@ -26,7 +26,6 @@
         {{-- Id connected to the Vue App component --}}
         <div id="root">
         </div>
-
         {{-- Link to js file --}}
         <script src="{{asset('js/front.js')}}"></script>
     </body>

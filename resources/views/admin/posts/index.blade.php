@@ -51,11 +51,11 @@
     {{-- Link for pagination --}}
     <div class="d-flex justify-content-end">
         {{$posts->links()}}
-    </div>
-    
+    </div>   
 </div>  
 @endsection
 
+{{-- Insert the scripts of the page --}}
 @section('scripts')
 <script>
     // Ask the user for confirmation to delete the post
@@ -67,6 +67,5 @@
         if(confirm) this.submit();
     });       
     });
-</script>
-    
+</script>   
 @endsection

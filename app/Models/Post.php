@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    //// Add the fillable fields
     protected $fillable = ['title', 'content', 'slug', 'url', 'category_id'];
 
+    //// Add function to format the date that will arrive from the database
     public function getFormattedDate($column, $format = 'd-m-Y')
     {
         return Carbon::create($this->$column)->format($format);
