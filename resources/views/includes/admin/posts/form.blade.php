@@ -1,3 +1,4 @@
+{{-- Check if there are errors in the form --}}
 @if($errors->any())
   <div>
     <div class="alert alert-danger">
@@ -9,6 +10,7 @@
     </div>
   </div>
 @endif
+{{-- Check if there are errors in the form --}}
 @if ($post->exists)
 <form action="{{route('admin.posts.update', $post->id)}}" method="POST" novalidate>
     @method('PATCH')
@@ -18,7 +20,10 @@
     @csrf
     <div class="form-group">
         <label for="title">Titolo del post:</label>
-        <input type="text" class="form-control" id="title" name="title" value="{{$post->title}}" required>
+        <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{old('name', $post->title)}}" required>
+        @error('title')
+          <div class="invalid-feedback">{{ $message }}</div>          
+        @enderror
     </div>
     <div class="form-group">
         <label for="category_id">Categoria</label>
@@ -31,11 +36,11 @@
       </div>
     <div class="form-group">
         <label for="url">Url del post:</label>
-        <input type="text" class="form-control" id="url" name="url" value="{{$post->url}}">
+        <input type="text" class="form-control" id="url" name="url" value="{{old('url', $post->url)}}">
     </div>
     <div class="form-group">
         <label for="content">Testo del post:</label>
-        <textarea class="form-control" id="content" name="content" rows="6">{{$post->content}}</textarea>
+        <textarea class="form-control" id="content" name="content" rows="6">{{old('content', $post->content)}}</textarea>
     </div>
     <button type="button" class="btn btn-dark"><a class="text-white text-decoration-none" href="{{route('admin.posts.index')}}">Indietro</a></button>
     <button type="submit" class="btn btn-primary">Salva post</button>

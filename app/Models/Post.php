@@ -9,7 +9,7 @@ class Post extends Model
 {
     protected $fillable = ['title', 'content', 'slug', 'url', 'category_id'];
 
-    public function getFormattedDate($column, $format = 'd-m-Y H:I:s')
+    public function getFormattedDate($column, $format = 'd-m-Y')
     {
         return Carbon::create($this->$column)->format($format);
     }
