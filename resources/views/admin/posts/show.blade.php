@@ -24,8 +24,8 @@
 @endsection
 
 @section('scripts')
-  {{-- Ask the user for confirmation to delete the post --}}
   <script>
+    // Ask the user for confirmation to delete the post
     const deleteForm = document.getElementById('delete-form');
     deleteForm.addEventListener('submit', function(e) {
       e.preventDefault();
