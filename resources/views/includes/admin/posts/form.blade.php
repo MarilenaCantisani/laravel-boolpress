@@ -1,13 +1,24 @@
+@if($errors->any())
+  <div>
+    <div class="alert alert-danger">
+      <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+  </div>
+@endif
 @if ($post->exists)
-<form action="{{route('admin.posts.update', $post->id)}}" method="POST">
+<form action="{{route('admin.posts.update', $post->id)}}" method="POST" novalidate>
     @method('PATCH')
     @else
-    <form action="{{route('admin.posts.store')}}" method="POST">  
+    <form action="{{route('admin.posts.store')}}" method="POST" novalidate>  
 @endif
     @csrf
     <div class="form-group">
         <label for="title">Titolo del post:</label>
-        <input type="text" class="form-control" id="title" name="title" value="{{$post->title}}">
+        <input type="text" class="form-control" id="title" name="title" value="{{$post->title}}" required>
     </div>
     <div class="form-group">
         <label for="category_id">Categoria</label>

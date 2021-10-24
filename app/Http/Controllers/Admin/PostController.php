@@ -42,6 +42,18 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        //// Validation
+        $request->validate(
+            [
+                'title' => 'required|string|unique:posts|min:4|max:100',
+            ],
+            [
+                'title.required' => "Inserisci un titolo per il post",
+                'title.unique' => "Il titolo '$request->title' è già stato utilizzato",
+                'title.min' => "Il titolo deve essere composto da almeno :min caratteri",
+                'title.max' => "Il titolo deve essere lungo massimo :max caratteri"
+            ]
+        );
         $data = $request->all();
         $post = new Post();
         $post->fill($data);
