@@ -11,11 +11,26 @@
           <p class="card-text">{{$post->content}}</p>
           <time>{{$post->getFormattedDate('created_at')}}</time>
           <div class="d-flex justify-content-end">
-            <a class="btn btn-primary" href="{{route('admin.posts.index')}}">Indietro</a>
-          </div>
+            <form method="POST" action="{{route('admin.posts.destroy', $post->id)}}" id="delete-form">
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="btn btn-danger">Elimina</button>
+            </form>
+              <a class="btn btn-primary ml-2" href="{{route('admin.posts.index')}}">Indietro</a>
+          </div>        
         </div>
       </div>
+</div>   
+@endsection
 
-</div>
-    
+@section('scripts')
+  {{-- Ask the user for confirmation to delete the post --}}
+  <script>
+    const deleteForm = document.getElementById('delete-form');
+    deleteForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const deleteConfirmation = confirm('Sei sicuro di voler eliminare questo post?');
+      if(confirm) this.submit();
+    });
+  </script>   
 @endsection
