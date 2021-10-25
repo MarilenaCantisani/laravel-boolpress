@@ -20,6 +20,7 @@
             <th scope="col">#</th>
             <th scope="col">Titolo</th>
             <th scope="col">Categoria</th>
+            <th scope="col">Tags</th>
             <th scope="col">Scritto il</th>
             <th scope="col"></th>
           </tr>
@@ -34,7 +35,14 @@
                         <span class="badge py-1 px-2 badge-{{ $post->category->color ?? 'light' }}">{{  $post->category->name ?? 'Nessuno'  }}</span>
                         @else Nessuna categoria 
                         @endif
-                    </td>               
+                    </td>  
+                    <td class="text-left h6 align-middle">
+                        @forelse ($post->tags as $tag)
+                            <span class="badge py-1 px-2" style="background-color: {{ $tag->color }}">{{ $tag->name  }}</span>        
+                        @empty
+                            Nessun tag       
+                        @endforelse
+                    </td>             
                     <td class="align-middle">{{$post->getFormattedDate('created_at')}}</td>
                     <td class="d-flex justify-content-end">
                         <a href="{{route('admin.posts.show', $post->id)}}" class="btn btn-primary">Vedi</a>

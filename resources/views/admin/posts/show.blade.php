@@ -7,7 +7,7 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">{{$post->title}}</h5>
-      <h6>Categoria: @if ($post->category) {{$post->category->name}} @else Nessuna categoria @endif</h6>                    
+      <h6>Categoria: @if ($post->category) {{$post->category->name}} @else Nessuna categoria @endif</h6>  
       <p class="card-text">{{$post->content}}</p>
       <time>{{$post->getFormattedDate('created_at')}}</time>
       <div class="d-flex justify-content-end">

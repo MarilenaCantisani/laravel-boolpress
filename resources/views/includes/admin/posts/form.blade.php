@@ -42,6 +42,17 @@
         <label for="content">Testo del post:</label>
         <textarea class="form-control" id="content" name="content" rows="6">{{old('content', $post->content)}}</textarea>
     </div>
-    <button type="button" class="btn btn-dark"><a class="text-white text-decoration-none" href="{{route('admin.posts.index')}}">Indietro</a></button>
-    <button type="submit" class="btn btn-primary">Salva post</button>
+    <h6>Tags:</h6>
+    @foreach ($tags as $tag)
+      <div class="form-check form-check-inline mb-4 ">
+        <input class="form-check-input d-flex" type="checkbox" value="{{ $tag->id }}" id="tag-{{ $tag->id }}" name='tags[]' @if (in_array($tag->id, old('tags', $tagIds ?? []))) checked @endif>
+        <label class="form-check-label" for="tag-{{ $tag->id }}">
+          {{ $tag->name }}
+        </label>
+      </div>     
+    @endforeach
+    <div>
+      <button type="button" class="btn btn-dark"><a class="text-white text-decoration-none" href="{{route('admin.posts.index')}}">Indietro</a></button>
+      <button type="submit" class="btn btn-primary">Salva post</button>
+    </div>   
 </form>

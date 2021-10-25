@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Tag;
+
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -32,7 +34,9 @@ class PostController extends Controller
     {
         $post = new Post();
         $categories = Category::all();
-        return view('admin.posts.create', compact('post', 'categories'));
+        $tags = Tag::all();
+
+        return view('admin.posts.create', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -47,6 +51,8 @@ class PostController extends Controller
         $request->validate(
             [
                 'title' => 'required|string|unique:posts|min:4|max:100',
+                'tags' => 'nullable|exists:tags,id',
+
             ],
             [
                 'title.required' => "Inserisci un titolo per il post",
@@ -59,7 +65,11 @@ class PostController extends Controller
         $post = new Post();
         $post->fill($data);
         $post->slug = Str::slug($post->title, '-');
+
         $post->save();
+
+        if (array_key_exists('tags', $data)) $post->tags()->attach($data['tags']);
+
         return redirect()->route('admin.posts.show', compact('post'));
     }
 
@@ -83,7 +93,9 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $categories = Category::all();
-        return view('admin.posts.edit', compact('post', 'categories'));
+        $tags = Tag::all();
+        $tagIds = Tag::pluck('id')->toArray();
+        return view('admin.posts.edit', compact('post', 'categories', 'tags', 'tagIds'));
     }
 
     /**
