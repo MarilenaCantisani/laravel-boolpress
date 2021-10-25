@@ -21,4 +21,10 @@ class Post extends Model
     {
         return $this->belongsTo('App\Models\Category');
     }
+
+    //// Function to create "many to many" type dependency with the 'Tag' model
+    public function tags()
+    {
+        return $this->belongsToMany('App\Models\Tag');
+    }
 }

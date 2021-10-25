@@ -27,13 +27,18 @@
         <tbody>
             @forelse ($posts as $post)
                 <tr>
-                    <th scope="row">{{$post->id}}</th>
-                    <td>{{$post->title}}</td>
-                    <td> @if($post->category){{$post->category->name}} @else Nessuna categoria @endif</td>               
-                    <td>{{$post->getFormattedDate('created_at')}}</td>
+                    <th class="align-middle" scope="row">{{$post->id}}</th>
+                    <td class="align-middle">{{$post->title}}</td>
+                    <td class="text-left h6 align-middle"> 
+                        @if($post->category)
+                        <span class="badge py-1 px-2 badge-{{ $post->category->color ?? 'light' }}">{{  $post->category->name ?? 'Nessuno'  }}</span>
+                        @else Nessuna categoria 
+                        @endif
+                    </td>               
+                    <td class="align-middle">{{$post->getFormattedDate('created_at')}}</td>
                     <td class="d-flex justify-content-end">
                         <a href="{{route('admin.posts.show', $post->id)}}" class="btn btn-primary">Vedi</a>
-                        <a href="{{route('admin.posts.edit', $post->id)}}" class="btn btn-warning mx-2">Modifica</a>
+                        <a href="{{route('admin.posts.edit', $post->id)}}" class="btn btn-secondary mx-2">Modifica</a>
                         <form action="{{route('admin.posts.destroy', $post->id)}}" method="post" class="delete-form">
                             @csrf
                             @method('DELETE')
@@ -51,7 +56,7 @@
     {{-- Link for pagination --}}
     <div class="d-flex justify-content-end">
         {{$posts->links()}}
-    </div>   
+    </div> 
 </div>  
 @endsection
 
