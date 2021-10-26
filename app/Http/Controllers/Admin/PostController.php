@@ -94,7 +94,7 @@ class PostController extends Controller
     {
         $categories = Category::all();
         $tags = Tag::all();
-        $tagIds = Tag::pluck('id')->toArray();
+        $tagIds = $post->tags->pluck('id')->toArray();
         return view('admin.posts.edit', compact('post', 'categories', 'tags', 'tagIds'));
     }
 
@@ -111,6 +111,7 @@ class PostController extends Controller
         $request->validate(
             [
                 'title' => ['required', 'string', Rule::unique('posts')->ignore($post->id), 'min:4', 'max:100'],
+                'tags' => 'nullable|exists:tags,id',
             ],
             [
                 'title.required' => "Inserisci un titolo per il post",
@@ -123,7 +124,11 @@ class PostController extends Controller
         $data = $request->all();
         $post->fill($data);
         $post->slug = Str::slug($post->title, '-');
-        $post->save();
+
+        if (!array_key_exists('tags', $data)) $post->tags()->detach();
+        else $post->tags()->sync($data['tags']);
+
+        $post->update($data);
 
         return redirect()->route('admin.posts.show', $post->id);
     }
@@ -136,6 +141,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        if (count($post->tags)) $post->tags()->detach();
         $post->delete();
         return redirect()->route('admin.posts.index')->with('alert-message', 'Post cancellato con successo!')->with('alert-type', 'success');
     }
