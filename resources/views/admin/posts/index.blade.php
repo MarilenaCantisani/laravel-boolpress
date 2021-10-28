@@ -16,12 +16,12 @@
     {{-- Table containing all the posts --}}
     <table class="table my-4">
         <thead>
-          <tr>
+          <tr class="text-center">
             <th scope="col">#</th>
-            <th scope="col">Titolo</th>
-            <th scope="col">Categoria</th>
+            <th class="text-left" scope="col">Titolo</th>
+            <th class="pl-5" scope="col">Categoria</th>
             <th scope="col">Tags</th>
-            <th scope="col">Scritto il</th>
+            <th class="pl-5" scope="col">Scritto il</th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -29,22 +29,22 @@
             @forelse ($posts as $post)
                 <tr>
                     <th class="align-middle" scope="row">{{$post->id}}</th>
-                    <td class="align-middle">{{$post->title}}</td>
-                    <td class="text-left h6 align-middle"> 
+                    <td class="align-middle p5-5">{{$post->title}}</td>
+                    <td class="text-left h6 align-middle pl-5"> 
                         @if($post->category)
-                        <span class="badge py-1 px-2 badge-{{ $post->category->color ?? 'light' }}">{{  $post->category->name ?? 'Nessuno'  }}</span>
+                        <span class="badge py-1 px-2 d-block badge-{{ $post->category->color ?? 'light' }}">{{  $post->category->name ?? 'Nessuno'  }}</span>
                         @else Nessuna categoria 
                         @endif
                     </td>  
-                    <td class="text-left h6 align-middle">
+                    <td class=" h6 align-middle px-4">
                         @forelse ($post->tags as $tag)
-                            <span class="badge py-1 px-2" style="background-color: {{ $tag->color }}">{{ $tag->name  }}</span>        
-                        @empty
-                            Nessun tag       
+                            <span class="badge py-1 px-2 d-block mb-1 text-center" style="border: 2px solid {{ $tag->color }}">{{ $tag->name  }}</span>        
+                        @empty 
+                            <span class=" py-1 px-2 d-block mb-1 text-center">Nessun tag</span> 
                         @endforelse
                     </td>             
-                    <td class="align-middle">{{$post->getFormattedDate('created_at')}}</td>
-                    <td class="d-flex justify-content-end">
+                    <td class="align-middle pl-5">{{$post->getFormattedDate('created_at')}}</td>
+                    <td class="d-flex justify-content-end pl-5">
                         <a href="{{route('admin.posts.show', $post->id)}}" class="btn btn-primary">Vedi</a>
                         <a href="{{route('admin.posts.edit', $post->id)}}" class="btn btn-secondary mx-2">Modifica</a>
                         <form action="{{route('admin.posts.destroy', $post->id)}}" method="post" class="delete-form">
