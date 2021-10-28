@@ -2049,6 +2049,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "PostCard",
   props: ["post"],
@@ -38744,7 +38751,9 @@ var render = function() {
         _c("hr"),
         _vm._v(" "),
         _c("h5", [
-          _c("strong", [_vm._v("Categoria:")]),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("Categoria")
+          ]),
           _vm._v(
             "\n        " +
               _vm._s(
@@ -38756,16 +38765,26 @@ var render = function() {
         _vm._v(" "),
         _c("hr"),
         _vm._v(" "),
-        _c("h6", [
+        _c("div", { staticClass: "d-flex my-3" }, [
+          _c("div", { staticClass: "col-4 text-center" }, [
+            _c("img", { attrs: { src: _vm.post.url, alt: _vm.post.title } })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-8" }, [
+            _c("p", { staticClass: "card-text" }, [
+              _vm._v(
+                "\n            " + _vm._s(_vm.post.content) + "\n          "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("h6", { staticClass: "d-flex justify-content-end" }, [
           _c("em", [
             _vm._v(
               "Scritto il: " + _vm._s(_vm.getFormattedDate(_vm.post.created_at))
             )
           ])
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "card-text" }, [
-          _vm._v("\n        " + _vm._s(_vm.post.content) + "\n      ")
         ])
       ])
     ])
@@ -51396,7 +51415,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************************************************************************!*\
   !*** ./resources/js/components/posts/PostCard.vue?vue&type=template&id=35f8d092&scoped=true& ***!
   \***********************************************************************************************/
-/*! exports provided: render, staticRenderFns */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

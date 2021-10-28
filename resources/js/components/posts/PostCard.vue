@@ -7,16 +7,23 @@
         </h4>
         <hr />
         <h5>
-          <strong>Categoria:</strong>
+          <span class="font-weight-bold">Categoria</span>
           {{ post.category ? post.category.name : "Nessuna categoria" }}
         </h5>
         <hr />
-        <h6>
+        <div class="d-flex my-3">
+          <div class="col-4 text-center">
+            <img :src="post.url" :alt="post.title" />
+          </div>
+          <div class="col-8">
+            <p class="card-text">
+              {{ post.content }}
+            </p>
+          </div>
+        </div>
+        <h6 class="d-flex justify-content-end">
           <em>Scritto il: {{ getFormattedDate(post.created_at) }}</em>
         </h6>
-        <p class="card-text">
-          {{ post.content }}
-        </p>
       </div>
     </div>
   </li>

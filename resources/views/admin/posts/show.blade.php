@@ -6,10 +6,31 @@
 <div class="container">
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title">{{$post->title}}</h5>
-      <h6>Categoria: @if ($post->category) {{$post->category->name}} @else Nessuna categoria @endif</h6>  
-      <p class="card-text">{{$post->content}}</p>
-      <time>{{$post->getFormattedDate('created_at')}}</time>
+      <h5 class="card-title mb-5 font-weight-bold">{{$post->title}}</h5>
+      <section id="card-content" class="d-flex  align-items-center row">
+        <div class="col-4 text-center">
+          <img  style="height: auto; width=auto" src="{{ $post->url }}" alt="{{$post->title}}">
+        </div>
+        <div class="col-8">
+          <h6 class="font-weight-bold">Categoria: 
+            <span class="badge ml-2 align-middle py-1 px-2 badge-{{ $post->category->color ?? 'light' }}">{{  $post->category->name ?? 'Nessuna categoria'  }}</span>
+          </h6>  
+          <h6 class="font-weight-bold">Tags: 
+            @forelse ($post->tags as $tag)
+            <span class="badge ml-2 py-1 px-2 align-middle mb-1 text-center" style="border: 2px solid {{ $tag['color'] }}">{{ $tag['name']  }}</span>        
+    
+            @empty Nessun tag       
+            @endforelse
+          </h6>
+          
+          <p class="card-text">{{$post->content}}</p>
+          <time><span class="font-weight-bold">Scritto il:</span> {{$post->getFormattedDate('created_at')}}</time>
+
+        </div>
+
+
+      </section>
+      
       <div class="d-flex justify-content-end">
         {{-- Add the form to insert the button 'delete'--}}
         <form method="POST" action="{{route('admin.posts.destroy', $post->id)}}" id="delete-form">

@@ -12,10 +12,10 @@
 @endif
 {{-- Check if there are errors in the form --}}
 @if ($post->exists)
-<form action="{{route('admin.posts.update', $post->id)}}" method="POST" novalidate>
+<form action="{{route('admin.posts.update', $post->id)}}" method="POST">
     @method('PATCH')
     @else
-    <form action="{{route('admin.posts.store')}}" method="POST" novalidate>  
+    <form action="{{route('admin.posts.store')}}" method="POST">  
 @endif
     @csrf
     <div class="form-group">

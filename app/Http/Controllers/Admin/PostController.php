@@ -81,7 +81,9 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('admin.posts.show', compact('post'));
+        $tags = Tag::all();
+        $tag_ids = $post->tags->pluck('id')->toArray();
+        return view('admin.posts.show', compact('post', 'tags', 'tag_ids'));
     }
 
     /**

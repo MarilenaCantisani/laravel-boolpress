@@ -49,6 +49,9 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     {{-- Add to dropmenu the post entry linked to the index page --}}
+                                    <a class="dropdown-item" href="{{route('admin.categories.index')}}">
+                                        Categorie
+                                    </a>
                                     <a class="dropdown-item" href="{{route('admin.posts.index')}}">
                                         Post
                                     </a>
