@@ -69,4 +69,8 @@ export default {
 nav {
   cursor: pointer;
 }
+ul {
+  background-color: lightgray;
+  padding: 10px 30px;
+}
 </style>

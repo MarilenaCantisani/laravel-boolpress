@@ -7,7 +7,7 @@
         </h4>
         <hr />
         <h5>
-          <span class="font-weight-bold">Categoria</span>
+          <span class="font-weight-bold">Categoria:</span>
           {{ post.category ? post.category.name : "Nessuna categoria" }}
         </h5>
         <hr />

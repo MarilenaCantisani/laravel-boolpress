@@ -6648,7 +6648,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "nav[data-v-35b65645] {\n  cursor: pointer;\n}", ""]);
+exports.push([module.i, "nav[data-v-35b65645] {\n  cursor: pointer;\n}\nul[data-v-35b65645] {\n  background-color: lightgray;\n  padding: 10px 30px;\n}", ""]);
 
 // exports
 
@@ -38752,7 +38752,7 @@ var render = function() {
         _vm._v(" "),
         _c("h5", [
           _c("span", { staticClass: "font-weight-bold" }, [
-            _vm._v("Categoria")
+            _vm._v("Categoria:")
           ]),
           _vm._v(
             "\n        " +

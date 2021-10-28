@@ -25,7 +25,7 @@ class PostsTableSeeder extends Seeder
             $post->title = $faker->text(100);
             $post->content = $faker->paragraphs(3, true);
             $post->slug = Str::slug($post->title, '-');
-            $post->url = $faker->imageUrl(200, 200);
+            $post->url = $faker->imageUrl(320, 240, 'animals', true);
 
             $post->save();
         }
